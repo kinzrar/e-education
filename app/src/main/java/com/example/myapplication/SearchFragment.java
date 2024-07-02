@@ -54,7 +54,7 @@ public class SearchFragment extends Fragment {
         languages = new ArrayList<>();
 
         List<Tutor> cppTutors = new ArrayList<>();
-        cppTutors.add(new Tutor("Jhon Smit", "js@ukrnet.com", "Expert in C++", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch?v=example1"));
+        cppTutors.add(new Tutor("John Smit", "js@ukrnet.com", "Expert in C++ Меня зовут John Smit, и я являюсь опытным преподавателем программирования на C++. Более 5 лет я обучаю студентов всех уровней, от новичков до продвинутых пользователей, помогая им осваивать основы языка, решать сложные задачи и создавать собственные проекты. Я обладаю глубокими знаниями в области алгоритмов и структур данных, а также практическим опытом разработки программного обеспечения. Моя методика обучения основана на индивидуальном подходе к каждому студенту, что позволяет добиваться высоких результатов. Буду рад помочь вам в изучении C++ и достижении ваших целей в программировании.", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch?v=zvLu9KuR504"));
         cppTutors.add(new Tutor("Sara Conor", "sc@ukrnet.com", "C++ Specialist", "45 USD/hour", 4.2, "Canada", 90, 45, 3, "https://www.youtube.com/watch?v=example2"));
         languages.add(new Language("Tutors C++", cppTutors));
 
@@ -96,7 +96,7 @@ public class SearchFragment extends Fragment {
 
     private void showLanguageSelectionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Выберите язык");
+        builder.setTitle("Виберіть мову");
 
         String[] languageTitles = new String[languages.size()];
         for (int i = 0; i < languages.size(); i++) {

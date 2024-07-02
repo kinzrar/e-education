@@ -25,7 +25,7 @@ public class LanguageSelectionActivity extends AppCompatActivity {
         recyclerViewTutors.setLayoutManager(new LinearLayoutManager(this));
 
         tutors = new ArrayList<>();
-        tutors.add(new Tutor("Jhon Smit", "js@ukrnet.com", "Expert in C++", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch?v=example1"));
+        tutors.add(new Tutor("Jhon Smit", "js@ukrnet.com", "Expert in C++ ", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch??v=zvLu9KuR504"));
         tutors.add(new Tutor("Sara Conor", "sc@ukrnet.com", "Expert in C++", "45 USD/hour", 4.7, "USA", 150, 60, 6, "https://www.youtube.com/watch?v=example2"));
         tutors.add(new Tutor("Walter White", "ws@ukrnet.com", "Expert in C#", "55 USD/hour", 4.9, "USA", 120, 55, 7, "https://www.youtube.com/watch?v=example3"));
         tutors.add(new Tutor("Megan Conor", "mc@ukrnet.com", "Expert in C#", "60 USD/hour", 4.8, "USA", 130, 65, 8, "https://www.youtube.com/watch?v=example4"));

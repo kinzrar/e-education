@@ -9,22 +9,24 @@
         android:id="@+id/tutorPlaceholder"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/ic_profile_placeholder"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/ic_profile_placeholder" />
 
     <TextView
         android:id="@+id/textViewTutorName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:paddingTop="8dp" />
 
     <TextView
         android:id="@+id/textViewTutorEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:textColor="@android:color/darker_gray" />
+        android:textColor="@android:color/darker_gray"
+        android:paddingTop="4dp" />
 
     <TextView
         android:id="@+id/textViewTutorDescription"
@@ -40,45 +42,26 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
+        android:paddingTop="4dp"/>
 
+    <!-- Имитация кнопки "Детальніше" -->
     <TextView
-        android:id="@+id/textViewTutorRating"
-        android:layout_width="match_parent"
+        android:id="@+id/textViewDetails"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
+        android:layout_gravity="end"
+        android:text="Детальніше"
+        android:textColor="@android:color/holo_blue_light"
+        android:textStyle="bold"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"/>
 
-    <TextView
-        android:id="@+id/textViewTutorPrice"
+    <!-- Разделитель -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewTutorReviews"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewTutorLessons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
-
-    <TextView
-        android:id="@+id/textViewTutorExperience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@android:color/black"
-        android:paddingTop="8dp"/>
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
 </LinearLayout>
