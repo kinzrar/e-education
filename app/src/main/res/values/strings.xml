@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">E-Education</string>
+    <string name="title_activity_home">E-Education</string>
+    <string name="navigation_search">Пошук</string>
+    <string name="navigation_messages">Повідомлення</string>
+    <string name="navigation_schedule">Розклад</string>
+    <string name="navigation_vocab">Словник</string>
+    <string name="navigation_profile">Профіль</string>
+</resources>

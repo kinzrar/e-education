@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".RegistrationActivity">
+
+  <!-- Новый TextView для текста посередине экрана сверху -->
+  <TextView
+      android:id="@+id/textViewRegistration"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Реєстрація"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="16dp" />
+
+  <EditText
+      android:id="@+id/editTextLogin"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Логін"
+      android:layout_below="@id/textViewRegistration"
+      android:layout_marginTop="16dp" />
+
+  <EditText
+      android:id="@+id/editTextPassword"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Пароль"
+      android:inputType="textPassword"
+      android:layout_below="@id/editTextLogin"
+      android:layout_marginTop="16dp" />
+
+  <EditText
+      android:id="@+id/editTextRepeatPassword"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Повторіть пароль"
+      android:inputType="textPassword"
+      android:layout_below="@id/editTextPassword"
+      android:layout_marginTop="16dp" />
+
+  <EditText
+      android:id="@+id/editTextEmail"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Email"
+      android:inputType="textEmailAddress"
+      android:layout_below="@id/editTextRepeatPassword"
+      android:layout_marginTop="16dp" />
+
+  <EditText
+      android:id="@+id/editTextRealName"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Ваше ім'я"
+      android:layout_below="@id/editTextEmail"
+      android:layout_marginTop="16dp" />
+
+  <Button
+      android:id="@+id/buttonRegister"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Зарегистрироваться"
+      android:layout_below="@id/editTextRealName"
+      android:layout_marginTop="16dp" />
+
+  <!-- Кнопка "Назад" -->
+  <Button
+      android:id="@+id/buttonBack"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="99dp"
+      android:onClick="goBack"
+      android:text="Назад" />
+
+</RelativeLayout>

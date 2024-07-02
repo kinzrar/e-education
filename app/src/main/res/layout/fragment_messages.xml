@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView for title -->
+    <TextView
+        android:id="@+id/messagesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Повідомлення"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp"/>
+
+    <!-- EditText for search -->
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пошук"
+        android:drawableStart="@drawable/ic_search"
+        android:padding="8dp"
+        android:background="@drawable/search_background"/>
+
+    <!-- TabLayout for All and Archived tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Усі"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabArchived"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Архівовані"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- TextView for "Really, no questions?" -->
+    <TextView
+        android:id="@+id/noQuestionsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Справді, жодних питань?"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- TextView for the description below "Really, no questions?" -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Тут ви можете запитати у ваших викладачів що завгодно або обговорити ваші навчальні цілі."
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Button for "Find a tutor" -->
+    <Button
+        android:id="@+id/findTutorButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Знайти репетитора"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FF4081"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
