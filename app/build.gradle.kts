@@ -60,7 +60,7 @@ dependencies {
     implementation ("com.airbnb.android:lottie:6.2.0")
     implementation ("androidx.fragment:fragment:1.6.0-rc01")
     implementation("com.google.android.material:material:1.11.0")
-    implementation ("com.google.android.youtube:youtube-android-player-api:1.2.2")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")

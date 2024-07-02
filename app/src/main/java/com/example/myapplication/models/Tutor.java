@@ -9,19 +9,23 @@ public class Tutor implements Serializable {
     private String price;
     private double rating;
     private String countryOfBirth;
+    private int reviews;
+    private int lessons;
+    private int experience;
     private String videoUrl;
 
-    public Tutor(String name, String email, String description, String price, double rating, String countryOfBirth, String videoUrl) {
+    public Tutor(String name, String email, String description, String price, double rating, String countryOfBirth, int reviews, int lessons, int experience, String videoUrl) {
         this.name = name;
         this.email = email;
         this.description = description;
         this.price = price;
         this.rating = rating;
         this.countryOfBirth = countryOfBirth;
+        this.reviews = reviews;
+        this.lessons = lessons;
+        this.experience = experience;
         this.videoUrl = videoUrl;
     }
-
-    // Getters and setters for all fields
 
     public String getName() {
         return name;
@@ -45,6 +49,18 @@ public class Tutor implements Serializable {
 
     public String getCountryOfBirth() {
         return countryOfBirth;
+    }
+
+    public int getReviews() {
+        return reviews;
+    }
+
+    public int getLessons() {
+        return lessons;
+    }
+
+    public int getExperience() {
+        return experience;
     }
 
     public String getVideoUrl() {

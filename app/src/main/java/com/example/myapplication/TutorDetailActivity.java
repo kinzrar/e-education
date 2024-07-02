@@ -1,63 +1,52 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.models.Tutor;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class TutorDetailActivity extends AppCompatActivity {
 
-    private TextView textViewTutorName;
-    private TextView textViewTutorEmail;
-    private TextView textViewTutorDescription;
-    private TextView textViewTutorRating;
-    private TextView textViewTutorPrice;
-    private TextView textViewTutorCountry;
-    private YouTubePlayerView youTubePlayerView;
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_detail);
 
-        textViewTutorName = findViewById(R.id.textViewTutorName);
-        textViewTutorEmail = findViewById(R.id.textViewTutorEmail);
-        textViewTutorDescription = findViewById(R.id.textViewTutorDescription);
-        textViewTutorRating = findViewById(R.id.textViewTutorRating);
-        textViewTutorPrice = findViewById(R.id.textViewTutorPrice);
-        textViewTutorCountry = findViewById(R.id.textViewTutorCountry);
-        youTubePlayerView = findViewById(R.id.youtube_player_view);
-
         Tutor tutor = (Tutor) getIntent().getSerializableExtra("tutor");
-        if (tutor != null) {
-            textViewTutorName.setText(tutor.getName());
-            textViewTutorEmail.setText(tutor.getEmail());
-            textViewTutorDescription.setText(tutor.getDescription());
-            textViewTutorRating.setText(String.valueOf(tutor.getRating()));
-            textViewTutorPrice.setText(tutor.getPrice());
-            textViewTutorCountry.setText(tutor.getCountryOfBirth());
 
-            initializeYouTubePlayer(tutor.getVideoUrl());
-        } else {
-            Toast.makeText(this, "Error loading tutor details", Toast.LENGTH_SHORT).show();
-        }
-    }
+        WebView webViewVideo = findViewById(R.id.webViewVideo);
+        ImageView imageViewTutorPhoto = findViewById(R.id.imageViewTutorPhoto);
+        TextView textViewTutorName = findViewById(R.id.textViewTutorName);
+        TextView textViewTutorEmail = findViewById(R.id.textViewTutorEmail);
+        TextView textViewTutorCountry = findViewById(R.id.textViewTutorCountry);
+        TextView textViewTutorDescription = findViewById(R.id.textViewTutorDescription);
+        TextView textViewTutorRating = findViewById(R.id.textViewTutorRating);
+        TextView textViewTutorPrice = findViewById(R.id.textViewTutorPrice);
+        TextView textViewTutorReviews = findViewById(R.id.textViewTutorReviews);
+        TextView textViewTutorLessons = findViewById(R.id.textViewTutorLessons);
+        TextView textViewTutorExperience = findViewById(R.id.textViewTutorExperience);
 
-    private void initializeYouTubePlayer(String videoUrl) {
-        getLifecycle().addObserver(youTubePlayerView);
-        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-            @Override
-            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                String videoId = videoUrl.split("v=")[1];
-                youTubePlayer.cueVideo(videoId, 0);
-            }
-        });
+        textViewTutorName.setText(tutor.getName());
+        textViewTutorEmail.setText(tutor.getEmail());
+        textViewTutorCountry.setText(tutor.getCountryOfBirth());
+        textViewTutorDescription.setText(tutor.getDescription());
+        textViewTutorRating.setText(String.valueOf(tutor.getRating()));
+        textViewTutorPrice.setText(tutor.getPrice());
+        textViewTutorReviews.setText(String.valueOf(tutor.getReviews()));
+        textViewTutorLessons.setText(String.valueOf(tutor.getLessons()));
+        textViewTutorExperience.setText(String.valueOf(tutor.getExperience()));
+
+        WebSettings webSettings = webViewVideo.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webViewVideo.setWebViewClient(new WebViewClient());
+        webViewVideo.loadUrl(tutor.getVideoUrl());
     }
 }

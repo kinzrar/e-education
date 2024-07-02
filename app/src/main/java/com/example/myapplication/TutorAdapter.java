@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +16,12 @@ import java.util.List;
 
 public class TutorAdapter extends RecyclerView.Adapter<TutorAdapter.TutorViewHolder> {
 
+    private Context context;
     private List<Tutor> tutors;
-    private OnItemClickListener listener;
 
-    public interface OnItemClickListener {
-        void onItemClick(Tutor tutor);
-    }
-
-    public TutorAdapter(List<Tutor> tutors, OnItemClickListener listener) {
+    public TutorAdapter(Context context, List<Tutor> tutors) {
+        this.context = context;
         this.tutors = tutors;
-        this.listener = listener;
     }
 
     @NonNull
@@ -36,7 +34,20 @@ public class TutorAdapter extends RecyclerView.Adapter<TutorAdapter.TutorViewHol
     @Override
     public void onBindViewHolder(@NonNull TutorViewHolder holder, int position) {
         Tutor tutor = tutors.get(position);
-        holder.bind(tutor, listener);
+        holder.textViewTutorName.setText(tutor.getName());
+        holder.textViewTutorEmail.setText(tutor.getEmail());
+        holder.textViewTutorDescription.setText(tutor.getDescription());
+        holder.textViewTutorCountry.setText(tutor.getCountryOfBirth());
+        holder.textViewTutorRating.setText(String.valueOf(tutor.getRating()));
+        holder.textViewTutorPrice.setText(tutor.getPrice());
+        holder.textViewTutorReviews.setText(String.valueOf(tutor.getReviews()));
+        holder.textViewTutorLessons.setText(String.valueOf(tutor.getLessons()));
+        holder.textViewTutorExperience.setText(String.valueOf(tutor.getExperience()));
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, TutorDetailActivity.class);
+            intent.putExtra("tutor", tutor);
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -45,37 +56,27 @@ public class TutorAdapter extends RecyclerView.Adapter<TutorAdapter.TutorViewHol
     }
 
     public static class TutorViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView textViewTutorName;
-        public TextView textViewTutorEmail;
-        public TextView textViewTutorDescription;
-        public TextView textViewTutorRating;
-        public TextView textViewTutorPrice;
-        public TextView textViewTutorCountry;
+        TextView textViewTutorName;
+        TextView textViewTutorEmail;
+        TextView textViewTutorDescription;
+        TextView textViewTutorCountry;
+        TextView textViewTutorRating;
+        TextView textViewTutorPrice;
+        TextView textViewTutorReviews;
+        TextView textViewTutorLessons;
+        TextView textViewTutorExperience;
 
         public TutorViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewTutorName = itemView.findViewById(R.id.textViewTutorName);
             textViewTutorEmail = itemView.findViewById(R.id.textViewTutorEmail);
             textViewTutorDescription = itemView.findViewById(R.id.textViewTutorDescription);
+            textViewTutorCountry = itemView.findViewById(R.id.textViewTutorCountry);
             textViewTutorRating = itemView.findViewById(R.id.textViewTutorRating);
             textViewTutorPrice = itemView.findViewById(R.id.textViewTutorPrice);
-            textViewTutorCountry = itemView.findViewById(R.id.textViewTutorCountry);
-        }
-
-        public void bind(final Tutor tutor, final OnItemClickListener listener) {
-            textViewTutorName.setText(tutor.getName());
-            textViewTutorEmail.setText(tutor.getEmail());
-            textViewTutorDescription.setText(tutor.getDescription());
-            textViewTutorRating.setText(String.valueOf(tutor.getRating()));
-            textViewTutorPrice.setText(tutor.getPrice());
-            textViewTutorCountry.setText(tutor.getCountryOfBirth());
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onItemClick(tutor);
-                }
-            });
+            textViewTutorReviews = itemView.findViewById(R.id.textViewTutorReviews);
+            textViewTutorLessons = itemView.findViewById(R.id.textViewTutorLessons);
+            textViewTutorExperience = itemView.findViewById(R.id.textViewTutorExperience);
         }
     }
 }
