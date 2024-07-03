@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,54 +17,60 @@
             android:layout_height="200dp"
             android:layout_marginBottom="16dp"/>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="16dp">
-
-            <ImageView
-                android:id="@+id/imageViewTutorPhoto"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/ic_profile_placeholder"
-                tools:srcCompat="@tools:sample/avatars" />
+            android:layout_margin="8dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="12dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/textViewTutorName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:paddingTop="8dp"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@android:color/black" />
+                <ImageView
+                    android:id="@+id/imageViewTutorPhoto"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/ic_profile_placeholder"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-                <TextView
-                    android:id="@+id/textViewTutorEmail"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:paddingTop="4dp"
-                    android:textColor="@android:color/darker_gray" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textViewTutorCountry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:paddingTop="4dp"
-                    android:textColor="@android:color/darker_gray" />
+                    <TextView
+                        android:id="@+id/textViewTutorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingTop="8dp"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/textViewTutorEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingTop="4dp"
+                        android:textColor="@android:color/darker_gray" />
+
+                    <TextView
+                        android:id="@+id/textViewTutorCountry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:paddingTop="4dp"
+                        android:textColor="@android:color/darker_gray" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -144,7 +149,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Цена"
+                        android:text="Ціна"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"
@@ -178,7 +183,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Отзывы"
+                        android:text="Відгуки"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"
@@ -246,7 +251,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Опыт работы"
+                        android:text="Років стажу"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"
@@ -258,6 +263,34 @@
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textColor="@android:color/black"
+                        android:paddingTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textViewTakeLesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Замовити урок"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/holo_green_dark"
+                        android:gravity="center"
                         android:paddingTop="8dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

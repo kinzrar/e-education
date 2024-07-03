@@ -2,7 +2,7 @@ package com.example.myapplication;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -25,6 +25,7 @@ import java.util.List;
 public class SearchFragment extends Fragment {
 
     private Button buttonSelectLanguage;
+    private TextView selectedLanguageTextView;
     private RecyclerView recyclerViewSelectedTutors;
     private List<Language> languages = new ArrayList<>();
     private List<Tutor> selectedTutors = new ArrayList<>();
@@ -35,6 +36,7 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         buttonSelectLanguage = view.findViewById(R.id.button_select_language);
+        selectedLanguageTextView = view.findViewById(R.id.selectedLanguageTextView);
         recyclerViewSelectedTutors = view.findViewById(R.id.recyclerViewSelectedTutors);
         recyclerViewSelectedTutors.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -54,8 +56,8 @@ public class SearchFragment extends Fragment {
         languages = new ArrayList<>();
 
         List<Tutor> cppTutors = new ArrayList<>();
-        cppTutors.add(new Tutor("John Smit", "js@ukrnet.com", "Expert in C++ Меня зовут John Smit, и я являюсь опытным преподавателем программирования на C++. Более 5 лет я обучаю студентов всех уровней, от новичков до продвинутых пользователей, помогая им осваивать основы языка, решать сложные задачи и создавать собственные проекты. Я обладаю глубокими знаниями в области алгоритмов и структур данных, а также практическим опытом разработки программного обеспечения. Моя методика обучения основана на индивидуальном подходе к каждому студенту, что позволяет добиваться высоких результатов. Буду рад помочь вам в изучении C++ и достижении ваших целей в программировании.", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch?v=zvLu9KuR504"));
-        cppTutors.add(new Tutor("Sara Conor", "sc@ukrnet.com", "C++ Specialist", "45 USD/hour", 4.2, "Canada", 90, 45, 3, "https://www.youtube.com/watch?v=example2"));
+        cppTutors.add(new Tutor("Jhon Smit", "js@ukrnet.com", "Мене звати John Smit, і я є досвідченим викладачем програмування на C++. Понад 5 років я навчаю студентів усіх рівнів, від початківців до просунутих користувачів, допомагаючи їм опановувати основи мови, вирішувати складні задачі та створювати власні проекти. Я маю глибокі знання у галузі алгоритмів і структур даних, а також практичний досвід розробки програмного забезпечення. Моя методика навчання базується на індивідуальному підході до кожного студента, що дозволяє досягати високих результатів. Буду радий допомогти вам у вивченні C++ та досягненні ваших цілей у програмуванні.", "50 USD/hour", 4.5, "USA", 100, 50, 5, "https://www.youtube.com/watch?v=zvLu9KuR504"));
+        cppTutors.add(new Tutor("Sara Conor", "sc@ukrnet.com", "Мене звати Sara Conor, і я є викладачем програмування на C++ з трирічним досвідом. Протягом цього часу я навчила понад 90 студентів різних рівнів, від початківців до просунутих користувачів. Моя мета – допомогти кожному студенту опанувати основи мови, вирішувати складні задачі та створювати власні проекти. Я маю глибокі знання у галузі алгоритмів і структур даних, а також практичний досвід розробки програмного забезпечення. Моя методика навчання заснована на індивідуальному підході до кожного студента, що дозволяє досягати високих результатів. Буду рада допомогти вам у вивченні C++ та досягненні ваших цілей у програмуванні.", "45 USD/hour", 4.2, "Canada", 90, 45, 3, "https://www.youtube.com/watch?v=j4_799jGK4E"));
         languages.add(new Language("Tutors C++", cppTutors));
 
         List<Tutor> csharpTutors = new ArrayList<>();
@@ -96,7 +98,7 @@ public class SearchFragment extends Fragment {
 
     private void showLanguageSelectionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Виберіть мову");
+        builder.setTitle("Выберите язык");
 
         String[] languageTitles = new String[languages.size()];
         for (int i = 0; i < languages.size(); i++) {
@@ -107,6 +109,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Language selectedLanguage = languages.get(which);
+                selectedLanguageTextView.setText(selectedLanguage.getTitle());  // Устанавливаем выбранный язык в TextView
                 selectedTutors.clear();
                 selectedTutors.addAll(selectedLanguage.getTutors());
                 TutorAdapter adapter = new TutorAdapter(getContext(), selectedTutors);
